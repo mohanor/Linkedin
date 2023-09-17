@@ -96,40 +96,11 @@ const NavLinks = () => {
 
     const [active, setActive] = useState<number>(0);
     const line = 'after:content-[""] after:rounded-full after:w-full after:h-[2px] after:bg-[#00ACFF] after:block after:absolute after:bottom-0';
-
-    // const [isWrapped, setIsWrapped] = useState(false);
-    // const containerRef = useRef<HTMLUListElement>(null);
-
-    // const handleResize = () => {
-    //     if (containerRef.current) {
-    //         const items: any[] = Array.from(containerRef.current.children);
-    //         console.log(items.some((item: any, index) => item.offsetTop !== items[0].offsetTop));
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     handleResize();
-    
-    //     let timeout: NodeJS.Timeout;
-
-    //     const debounceResize = () => {
-    //       clearTimeout(timeout);
-    //       timeout = setTimeout(handleResize, 200);
-    //     };
-    
-    //     window.addEventListener('resize', debounceResize);
-    
-    //     return () => {
-    //       window.removeEventListener('resize', debounceResize);
-    //     };
-    //   }, []);
-
-
+ 
     return (
         <ul className='h-full flex justify-between flex-wrap space-x-6 lg:space-x-14'>
 
             {
-
                 navItems.map((item: any, index: number) => {
                     return (
                         <li
@@ -137,7 +108,7 @@ const NavLinks = () => {
                             className={`relative h-full flex items-center justify-center w-11 ${active === index ? line : null}`}
                             onClick={() => setActive(index)}
                         >
-                            <Link href={item.link}>{item.icon}</Link>
+                            <Link href={item.link} className='text-[#00ACFF]'>{item.icon}</Link>
                         </li>
                     )
                 })
@@ -153,7 +124,7 @@ const NavLinks = () => {
 export default function Nav() {
 
     return (
-        <nav className='w-screen h-[76px] bg-white'>
+        <nav className='w-full h-[76px] bg-white'>
             <div className='h-full flex justify-around lg:justify-between items-center  max-w-5xl xl2:max-w-7xl  m-auto'>
                 <NavLogo />
                 <NavLinks />

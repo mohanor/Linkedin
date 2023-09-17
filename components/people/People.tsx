@@ -28,7 +28,7 @@ const ConnectUser = () => {
           <span className="text-[10px] xl2:text-xs text-gray-500 font-light">CEO of Apple</span>
         </div>
       </div>
-      <button className="border text-[#00ACFF] border-[#00ACFF] text-xs xl2:text-sm rounded-xl px-2 xl2:px-4">Connect</button>
+      <button className="border text-[#00ACFF] border-[#00ACFF] text-xs rounded-xl px-2 xl2:px-3 ">Connect</button>
     </div>
   )
 }

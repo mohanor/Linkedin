@@ -35,7 +35,7 @@ export default function Pages() {
 
             <Link
                 href='/'
-                className='flex items-center gap-4 text-lg font-light text-[#666666]'
+                className='flex items-center gap-4 font-light text-[#666666]'
             >
                 <div className='h-[30px] w-[30px]'>
                     <Plus className='text-[25px]' />

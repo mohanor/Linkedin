@@ -12,7 +12,7 @@ const UserInfo = () => {
                 <Avatar className='mr-2' />
                 <div className='flex flex-col'>
                     <strong className='text-lg font-normal text-black'>Karim Saif</strong>
-                    <span className='text-sm text-black/[.46]'>UI/UX Designer</span>
+                    <span className='text-xs text-black/[.46]'>UI/UX Designer</span>
                 </div>
             </div>
 
