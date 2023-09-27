@@ -1,6 +1,8 @@
 
 import { Play, Plus } from '@/components/svgs'
 
+import items from './data'
+
 import AccountCard from '../accountcard/AccountCard'
 
 
@@ -20,24 +22,27 @@ const Item = () => {
 
 const SideBarLinks = () => {
   return (
-    <div className='bg-white rounded-[16px] overflow-hidden px-6 py-4 space-y-6'>
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
+    <div className='bg-white rounded-[16px] overflow-hidden px-6 py-6 space-y-6'>
+
+
+      {items.map(({icon, title, isNew}, i) => (
+        <div className='flex justify-between items-center'>
+          <div className='flex items-center gap-4'>
+            {icon}
+            <span className='font-light text-[#666666]'>{title}</span>
+          </div>
+          { isNew && <span className='text-xs bg-[#00ACFF] text-white rounded-full px-1 font-light'>New</span> }
+        </div>
+      ))}
+
     </div>
   )
 }
 
-
-const Hashtag = ({hashtag}: {hashtag: string}) => {
+const Hashtag = ({ hashtag }: { hashtag: string }) => {
 
   return (
-    <span className='bg-[#E9F0F8] px-3 rounded-md'>
+    <span className='bg-[#E9F0F8] px-3 rounded-md cursor-pointer'>
       #{hashtag}
     </span>
   )
@@ -53,10 +58,10 @@ const FollowedHashtags = () => {
         <Plus className='text-[#00ACFF] text-xl' />
       </div>
       <div className='flex flex-wrap gap-2'>
-        <Hashtag hashtag="work"/>
-        <Hashtag hashtag="business"/>
-        <Hashtag hashtag="hr"/>
-        <Hashtag hashtag="userinterface"/>
+        <Hashtag hashtag="work" />
+        <Hashtag hashtag="business" />
+        <Hashtag hashtag="hr" />
+        <Hashtag hashtag="userinterface" />
       </div>
     </div>
   )

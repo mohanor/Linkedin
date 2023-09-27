@@ -41,7 +41,7 @@ export default function AccountCard() {
                     </div>
                     <div className=''>
                         <h3 className='xl2:text-lg text-[#181818]'>Karim Saif</h3>
-                        <span className='text-xs xl2:text-sm text-[#666666]'>UI/UX Designer</span>
+                        <span className='text-xs text-black/[.46]'>UI/UX Designer</span>
                     </div>
                     { islargeDevice && <Progress /> }
                 </div>

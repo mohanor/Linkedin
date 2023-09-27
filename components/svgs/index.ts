@@ -23,5 +23,7 @@ export { default as LinkedInP } from './LinkedInP.svg';
 export { default as Plus } from './Plus.svg';
 export { default as Play } from './Play.svg';
 export { default as LogoPrum } from './LogoPrum.svg';
-
-
+export { default as Chart } from './Chart.svg';
+export { default as AddUser } from './AddUser.svg';
+export { default as Game } from './Game.svg';
+export { default as Setting } from './Setting.svg';

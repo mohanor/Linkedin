@@ -1,10 +1,9 @@
 import React from 'react'
 
-
-import Content from '@/components/Content'
+import Admin from '@/components/admin/Admin'
 
 export default function page() {
   return (
-    <Content />
+    <Admin />
   )
 }

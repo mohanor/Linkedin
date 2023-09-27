@@ -1,10 +1,10 @@
 import React from 'react'
 
+import Upload from '@/components/upload/Upload'
 
-import Content from '@/components/Content'
 
 export default function page() {
   return (
-    <Content />
+    <Upload />
   )
 }

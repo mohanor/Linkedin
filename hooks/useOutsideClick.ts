@@ -13,7 +13,6 @@ export const useOutsideClick = (close : (param: boolean) => void) => {
         }
 
         document.addEventListener('click', handdler)
-
         return () => {
             document.removeEventListener('click', handdler)
         }
