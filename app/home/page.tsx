@@ -1,10 +1,9 @@
 import React from 'react'
 
-
-import Content from '@/components/Content'
+import Home from '@/components/home/Home'
 
 export default function page() {
   return (
-    <Content />
+    <Home />
   )
 }

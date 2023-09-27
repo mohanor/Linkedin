@@ -1,11 +1,11 @@
 'use client';
 
 import { Button } from "@nextui-org/react";
-import { forwardRef, use, useEffect, useState } from 'react';
+import { forwardRef, memo, useEffect, useState } from 'react';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { Image } from "@nextui-org/react";
 
-import NextImage from "next/image";
+
 
 interface TriggerProps {
     children: React.ReactNode
@@ -69,7 +69,6 @@ const PreviewGallery = forwardRef<HTMLDivElement, { files: File[] }>(({ files },
 
 
     useEffect(() => {
-        // console.log(files)
         if (files.length === 0) return
         setSelected(URL.createObjectURL(files[0]))
 
@@ -90,27 +89,76 @@ const PreviewGallery = forwardRef<HTMLDivElement, { files: File[] }>(({ files },
             <div className="flex-[.3] text-[#a4a5a7] p-2 bg-[#1b1f23] rounded-lg overflow-y-auto">
                 <div className="mb-4">2 of 3</div>
                 <div className='grid grid-cols-2 gap-4'>
-                    {files.map((file, index) => (
-                        <div
-                            key={index}
-                            className="h-[200px] relative overflow-hidden rounded-inherit rounded-small"
-                            onClick={() => setSelected(URL.createObjectURL(file))}
-                        >
-                            <Image
-                                isZoomed
-                                alt="image"
-                                src={URL.createObjectURL(file)}
-                                className="object-cover h-full w-full"
-                                removeWrapper={true}
-                            />
-                            <small>01</small>
-                        </div>
-                    ))}
+                    <FileManager files={files} setSelected={setSelected} />
                 </div>
             </div>
         </div>
     )
 })
+
+
+interface FileManagerProps {
+    files: File[],
+    setSelected: (param: string) => void
+}
+
+
+const MemoImage = memo(({ file }: { file: File }) => {
+    return (
+        <Image
+            isZoomed
+            alt="image"
+            src={URL.createObjectURL(file)}
+            className="object-cover h-full w-full"
+            removeWrapper={true}
+        />
+    )
+})
+
+
+const FileManager = ({ files, setSelected }: FileManagerProps) => {
+
+    const [selectedIndex, setSelectedindex] = useState<number>(-1);
+
+    const slect = (file: File, index: number) => {
+        setSelected(URL.createObjectURL(file))
+        setSelectedindex(index)
+    }
+
+    const hi = () => {
+        console.log('hi')
+
+
+    }
+
+
+    function arraymove(fromIndex: number, toIndex: number) {
+        const element = files[fromIndex];
+        files.splice(fromIndex, 1);
+        files.splice(toIndex, 0, element);
+    }
+
+
+    return (
+        <>
+            {files.map((file, index) => (
+                <button
+                    key={index}
+                    className={`h-[200px] relative  overflow-hidden cursor-pointer rounded-large ${selectedIndex === index ? 'outline outline-2' : null }`}
+                    onClick={() => slect(file, index)}
+                >
+                    <MemoImage file={file} />
+                    <small>01</small>
+
+                    <div className="absolute text-white text-center space-x-2 w-full bottom-0 z-10">
+                        { index !== 0 && <button onClick={() => arraymove(index, index - 1)}>less</button> }
+                        { index !== files.length -1 && <button onClick={() => arraymove(index, index + 1)}>more</button> }
+                    </div>
+                </button>
+            ))}
+        </>
+    )
+}
 
 
 
@@ -132,8 +180,8 @@ const Editor = ({ close }: EditorProps) => {
             {
                 files.length === 0 ?
                     <UploadFromComputer ref={ref} setImagesList={setImagesList} />
-                :
-                <PreviewGallery ref={ref} files={files} />
+                    :
+                    <PreviewGallery ref={ref} files={files} />
             }
         </Content>
     )
