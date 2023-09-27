@@ -15,7 +15,7 @@ export { default as Send } from './Send.svg';
 export { default as Dots } from './Dots.svg';
 export { default as Chat2 } from './Chat2.svg';
 export { default as Bookmark } from './Bookmark.svg';
-export { default as Like } from './Like.svg';
+export { default as Like } from './Like2.svg';
 export { default as Voice } from './Voice.svg';
 export { default as ImageComment } from './ImageComment.svg';
 export { default as Ellipse } from './Ellipse.svg';
