@@ -7,7 +7,9 @@ import Main from './main/Main'
 import Sidebar from './sidebar/SideBar'
 import RightSide from './sidebar/RightSide'
 
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useMediaQuery } from '@/hooks/useMediaQuery'
+
+
 
 export default function Content() {
 

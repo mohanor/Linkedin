@@ -1,6 +1,6 @@
-import { Send, Edit } from '@/components/svgs'
+'use client';
+import { Edit } from '@/components/svgs'
 import Post from './post/Post'
-import items from './items'
 import Avatar from '@/components/avatar/Avatar'
 
 import StartWritePost from './post/StartWritePost'
@@ -19,7 +19,7 @@ const WriteSomething = () => {
 
 const WritePost = () => {
 
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [content, setContent] = useState<string>('')
 
   return (
