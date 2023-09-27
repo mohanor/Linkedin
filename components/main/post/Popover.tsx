@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import { useEffect } from "react";
 
 
 import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/popover";
@@ -7,10 +8,11 @@ import EmojiPicker from "emoji-picker-react";
 import { GrEmoji } from "react-icons/gr";
 
 type Props = {
-  getEmoji: (emojiObject: any, event: any) => void
+  getEmoji: (emojiObject: any, event: any) => void,
 }
 
 export default function App({getEmoji}: Props) {
+
 
   return (
     <Popover placement="bottom" showArrow={true}>

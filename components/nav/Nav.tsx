@@ -98,7 +98,7 @@ const NavLinks = () => {
     const line = 'after:content-[""] after:rounded-full after:w-full after:h-[2px] after:bg-[#00ACFF] after:block after:absolute after:bottom-0';
  
     return (
-        <ul className='h-full flex justify-between flex-wrap space-x-6 lg:space-x-14'>
+        <ul className='h-full flex justify-between space-x-6 lg:space-x-14'>
 
             {
                 navItems.map((item: any, index: number) => {
@@ -123,11 +123,15 @@ const NavLinks = () => {
 
 export default function Nav() {
 
+    const isSmallDevice = useMediaQuery("only screen and (min-width : 600px)");
+
     return (
         <nav className='w-full h-[76px] bg-white'>
-            <div className='h-full flex justify-around lg:justify-between items-center  max-w-5xl xl2:max-w-7xl  m-auto'>
+            <div className='h-full flex px-6 sm:px-2 lg:px-0 justify-between items-center  max-w-5xl xl2:max-w-7xl  m-auto'>
                 <NavLogo />
-                <NavLinks />
+
+                { isSmallDevice && <NavLinks />}
+                
                 <SearchBar />
             </div>
         </nav>

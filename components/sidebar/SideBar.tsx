@@ -26,7 +26,7 @@ const SideBarLinks = () => {
 
 
       {items.map(({icon, title, isNew}, i) => (
-        <div className='flex justify-between items-center'>
+        <div key={i} className='flex justify-between items-center'>
           <div className='flex items-center gap-4'>
             {icon}
             <span className='font-light text-[#666666]'>{title}</span>

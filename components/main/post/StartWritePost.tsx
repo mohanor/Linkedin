@@ -50,10 +50,9 @@ export default function StartWritePost({ close }: Props) {
 
     }
 
-
-    useEffect(() => {
-
         const handdler = (e: any) => {
+
+           
 
             if (post.current.contains(e.target)) return;
 
@@ -67,11 +66,30 @@ export default function StartWritePost({ close }: Props) {
             close(false)
         }
 
-        document.addEventListener('click', handdler)
+    useEffect(() => {
 
-        return () => {
-            document.removeEventListener('click', handdler)
-        }
+        // const handdler = (e: any) => {
+
+        //     console.log('sssshi: ', isPickerOpen)
+        //     if (isPickerOpen) return;
+
+        //     if (post.current.contains(e.target)) return;
+
+        //     if (textArefRef.current.value.length > 0) {
+            
+        //         if (confirm('Are you sure you want to discard this post?')) {
+        //             close(false)
+        //         }
+        //         return;
+        //     }
+        //     close(false)
+        // }
+
+        // document.addEventListener('click', handdler)
+
+        // return () => {
+        //     document.removeEventListener('click', handdler)
+        // }
 
     }, [])
 
@@ -81,7 +99,7 @@ export default function StartWritePost({ close }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed z-10 inset-0 bg-black bg-opacity-50 p-10 md:p-20 overflow-hidden'
+            className='fixed z-10 inset-0 bg-black bg-opacity-50 py-10 sm:p-10 md:p-20 overflow-hidden'
         >
             <div
                 ref={post}
@@ -112,7 +130,7 @@ export default function StartWritePost({ close }: Props) {
                             >
                             </textarea>
 
-                            <div className='flex-[0 0 auto]'>
+                            <div className='flex-[0 0 auto]' >
                                 <Popover getEmoji={getEmoji} />
                             </div>
                         </div>

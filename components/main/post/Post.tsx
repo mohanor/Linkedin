@@ -3,6 +3,7 @@ import { Dots, Like, Send, Chat2, Bookmark, Voice, ImageComment } from '@/compon
 import Image from 'next/image'
 import React from 'react'
 
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const UserInfo = () => {
 
@@ -62,26 +63,30 @@ const PostActions = () => {
 
 const AddComment = () => {
 
-    return (
-        <div className='flex bg-[#F6F6F6] rounded-full overflow-hidden mt-6 py-2 px-2 pr-8 relative'>
+    const isSmallDevice = useMediaQuery("only screen and (min-width : 600px)");
 
-            <div className={`rounded-full h-[40px] w-[50px] overflow-hidden `}>
-                <Image
-                    src='/images/profile.jpg'
-                    width={40}
-                    height={40}
-                    className='h-full w-full object-cover'
-                    alt='profile'
-                />
-            </div>
+    return (
+        <div className='flex bg-[#F6F6F6] rounded-full overflow-hidden mt-6 py-2 px-2 pr-4 sm:pr-8 relative'>
+
+            {
+                isSmallDevice && <div className={`rounded-full h-[40px]  w-[50px] overflow-hidden `}>
+                    <Image
+                        src='/images/profile.jpg'
+                        width={40}
+                        height={40}
+                        className='h-full w-full object-cover'
+                        alt='profile'
+                    />
+                </div>
+            }
 
             <input
                 type="text"
                 placeholder='Write a comment'
-                className='w-full px-4 py-2 border-none font-light text-md outline-none text-black/[.36] bg-transparent'
+                className='w-full px-4  py-2 border-none font-light text-md outline-none text-black/[.36] bg-transparent'
             />
 
-            <div className='flex gap-6 text-xl'>
+            <div className='flex gap-2 sm:gap-6 text-xl'>
                 <button className=''>
                     <Voice />
                 </button>
